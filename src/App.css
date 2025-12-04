@@ -1,0 +1,17 @@
+.app-container {
+  flex: 1;
+  display: flex;
+  padding: 24px;
+  gap: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 860px) {
+  .app-container {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    overflow-y: auto;
+  }
+}

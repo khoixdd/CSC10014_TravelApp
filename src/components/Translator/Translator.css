@@ -1,0 +1,148 @@
+.translator-card {
+  background: var(--input-bg);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  border: 1px solid var(--glass-border);
+}
+
+.translator-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.translator-header i {
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.translator-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.translator-input-section,
+.translator-output-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lang-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-sub);
+}
+
+.translator-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background: var(--glass-bg);
+  color: var(--text-main);
+  font-size: 14px;
+  font-family: inherit;
+  resize: none;
+  transition: all 0.2s ease;
+}
+
+.translator-textarea::placeholder {
+  color: var(--text-sub);
+}
+
+.translator-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.translator-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.btn-translate {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-translate:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.btn-translate:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.btn-clear {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background: var(--glass-bg);
+  color: var(--text-sub);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-clear:hover {
+  background: var(--input-bg);
+  color: var(--danger);
+}
+
+.translator-result {
+  min-height: 50px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--input-border);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.translated-text {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.placeholder-text {
+  color: var(--text-sub);
+  font-style: italic;
+  font-size: 13px;
+}
+
+.translator-error {
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}

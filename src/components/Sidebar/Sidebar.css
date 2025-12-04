@@ -1,0 +1,23 @@
+.sidebar-wrapper {
+  width: 420px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 20px;
+  overflow-y: auto;
+  box-shadow: var(--glass-shadow);
+  z-index: 10;
+}
+
+@media (max-width: 860px) {
+  .sidebar-wrapper {
+    width: 100%;
+    height: auto;
+    flex: none;
+  }
+}
