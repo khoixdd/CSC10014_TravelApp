@@ -6,3 +6,4 @@ export { default as POIList } from './POIList';
 export { default as Skeleton } from './Skeleton';
 export { default as Toast } from './Toast';
 export { default as Translator } from './Translator';
+export { default as Auth } from './Auth';

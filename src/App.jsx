@@ -1,11 +1,11 @@
 import { useState, useCallback } from 'react';
-import { Header, Map, Sidebar } from './components';
+import { Header, Map, Sidebar, Auth } from './components';
 import { searchLocation, getWeather, getPOIs } from './services/api';
 import { CONFIG } from './config';
 import './App.css';
 
 function App() {
-
+  const [showAuth, setShowAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [mapCenter, setMapCenter] = useState(CONFIG.DEFAULT_COORDS);
   const [mapZoom, setMapZoom] = useState(CONFIG.DEFAULT_ZOOM);
@@ -84,6 +84,7 @@ function App() {
         onSearch={handleSearch}
         isLoading={isLoading}
         message={message}
+        onLoginClick={() => setShowAuth(true)}
       />
 
       <div className="app-container">
@@ -101,6 +102,9 @@ function App() {
           onPoiClick={handlePoiClick}
         />
       </div>
+
+      {/* Auth Modal */}
+      {showAuth && <Auth onClose={() => setShowAuth(false)} />}
     </>
   );
 }
