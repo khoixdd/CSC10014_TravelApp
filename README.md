@@ -25,14 +25,30 @@ npm install
       VITE_FIREBASE_APP_ID=your_app_id
       ```
    6. Lưu file `.env` và khởi động lại server nếu đang chạy.
-   
+ **Cấu hình tunnel**
+ 1. Truy cập [Hugging Face](https://huggingface.co/) và đăng ký tài khoản.
+ 2. Tạo token truy cập cá nhân tại [Access Tokens](https://huggingface.co/settings/tokens).
+ 3. Thêm biến môi trường `HF_TOKEN` vào file `.env`:
+    ```env
+    HF_TOKEN=your_huggingface_token
+    ```
+ **Cấu hình pinggy**
+ 1. Truy cập (https://colab.research.google.com/drive/1gJSmLYk4MMivo9q_8eFkCKJDrMW10Bmq?usp=sharing) và tạo bản sao (Make a copy) về Google Drive của bạn.
+ 2. Chạy toàn bộ các ô (Run all) trong Colab để khởi động dịch vụ pinggy.
+ 3. Lấy URL # Replace with your actual ngrok URL from Colab
+ OLLAMA_API_URL = "your-link-pinggy/api/generate"
+ Eg: 
+OLLAMA_API_URL = "http://ayytx-34-187-190-15.a.free.pinggy.link/api/generate"
+
+Chạy backend: 
+```bash
+.venv/Scripts/python.exe translate_server.py
+```
 Chạy development server:
 ```bash
 npm run dev
 ```
 
 Mở trình duyệt tại localhost
-
-
 
 # CSC10014_TravelApp

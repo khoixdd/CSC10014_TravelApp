@@ -26,8 +26,14 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  // Check if Firebase auth is available
+  const isFirebaseAvailable = auth !== null;
   
   useEffect(() => {
+    if (!isFirebaseAvailable) {
+      setLoading(false);
+      return;
+    }
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
@@ -39,6 +45,9 @@ export const AuthProvider = ({ children }) => {
 
   // Đăng ký với email/password
   const register = async (email, password, displayName) => {
+    if (!isFirebaseAvailable) {
+      throw new Error('Firebase authentication not configured');
+    }
     try {
       setError('');
       const result = await createUserWithEmailAndPassword(auth, email, password);
@@ -57,6 +66,9 @@ export const AuthProvider = ({ children }) => {
 
   // Đăng nhập với email/password
   const login = async (email, password) => {
+    if (!isFirebaseAvailable) {
+      throw new Error('Firebase authentication not configured');
+    }
     try {
       setError('');
       const result = await signInWithEmailAndPassword(auth, email, password);
@@ -69,6 +81,9 @@ export const AuthProvider = ({ children }) => {
 
   // Đăng nhập với Google
   const loginWithGoogle = async () => {
+    if (!isFirebaseAvailable) {
+      throw new Error('Firebase authentication not configured');
+    }
     try {
       setError('');
       const result = await signInWithPopup(auth, googleProvider);
@@ -82,6 +97,10 @@ export const AuthProvider = ({ children }) => {
 
   // Đăng xuất
   const logout = async () => {
+    if (!isFirebaseAvailable) {
+      setUser(null);
+      return;
+    }
     try {
       setError('');
       await signOut(auth);

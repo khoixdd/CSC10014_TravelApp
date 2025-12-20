@@ -63,3 +63,20 @@ export async function getPOIs(lat, lon) {
   const url = `${CONFIG.API.OVERPASS}?data=${encodeURIComponent(query)}`;
   return await fetchWithRetry(url);
 }
+
+// Generate AI content using Ollama via backend
+export async function generateAI(prompt) {
+  const response = await fetch('http://localhost:5000/api/generate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ prompt }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to generate AI content');
+  }
+
+  return await response.json();
+}
